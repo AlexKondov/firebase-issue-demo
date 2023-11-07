@@ -1,4 +1,7 @@
+"use client";
+
 import Image from 'next/image'
+import { auth } from '@/lib/firebase'
 
 export default function Home() {
   return (

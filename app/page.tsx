@@ -5,6 +5,7 @@ import { EmailAuthProvider, User } from "@firebase/auth";
 import { useRouter } from "next/navigation";
 import "firebaseui/dist/firebaseui.css";
 import { auth } from "@/lib/firebase";
+import useAuthentication from "@/hooks/useAuthentication";
 
 console.log(auth);
 
@@ -43,6 +44,9 @@ export default function Auth() {
   // TODO: we put this in state to retain the initial value
   const [location] = useState(() => getRandomTavernLocation());
   const elementRef = useRef(null);
+  const { user: authUser } = useAuthentication();
+
+  console.log(authUser);
 
   const uiConfig = {
     signInFlow: "popup",

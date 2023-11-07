@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { auth } from '@/lib/firebase'
 
+console.log(auth)
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

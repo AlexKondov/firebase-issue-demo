@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import "firebaseui/dist/firebaseui.css";
 import { auth } from "@/lib/firebase";
 
+console.log(auth);
+
 function getRandomTavernLocation() {
   const tavernLocations = [
     "table by the small window",

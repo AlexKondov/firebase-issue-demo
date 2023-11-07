@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-// import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation";
 import Arrow from "../illustrations/Arrow";
 import Cook from "../illustrations/Cook";
 
 export default function Page() {
   return (
     <>
-      {/* <Navigation path="/" /> */}
+      <Navigation path="/" />
       <main>
         <div className="bg-black text-white border-b-2 border-black">
           <div className="flex flex-col py-2 mx-auto max-w-4xl px-4 md:px-0">

@@ -3,7 +3,10 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import useAuthentication from "../../hooks/useAuthentication";
+import Ale from "../../illustrations/Ale";
 import "react-loading-skeleton/dist/skeleton.css";
+import Arrow from "../../illustrations/Arrow";
+import Edit from "../../illustrations/Edit";
 import Link from "next/link";
 
 export default function Account() {
@@ -77,6 +80,7 @@ export default function Account() {
         <div>
           <Link href="/account/edit">
             <button className="border-2 border-black rounded-full p-2 brutalist">
+              <Edit />
             </button>
           </Link>
         </div>
@@ -113,7 +117,7 @@ export default function Account() {
           {awardedAnswerIds.has(answer.id) ? (
             <div className="absolute right-0 top-0 h-16 w-16">
               <div className="absolute transform rotate-45 bg-fuchsia-400 text-center text-black font-semibold py-1 right-[-40px] top-[28px] w-[170px] flex items-center justify-center">
-                Awarded 
+                Awarded <Ale />
               </div>
             </div>
           ) : null}
@@ -121,6 +125,7 @@ export default function Account() {
           <p className="text-lg font-bold mb-8">— The Innkeeper</p>
           <div className="text-center my-8">
             <div className="inline-block">
+              <Arrow size="small" />
             </div>
           </div>
           <div>
@@ -133,6 +138,7 @@ export default function Account() {
               <div className="flex justify-center items-center">
                 <div className="text-3xl text-gray-500">{answer.likes}</div>
                 <div className="flex flex-col items-center justify-center rounded-full ml-2 w-10 h-10 transition-all duration-100 select-none bg-white border border-gray-500">
+                  <Ale />
                 </div>
               </div>
             </div>

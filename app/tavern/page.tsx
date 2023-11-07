@@ -7,8 +7,8 @@ import { useInView } from "react-intersection-observer";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-// import AnswerList from "../../components/AnswerList";
-// import PromptForm from "../../components/PromptForm";
+import AnswerList from "../../components/AnswerList";
+import PromptForm from "../../components/PromptForm";
 import useAuthentication from "../../hooks/useAuthentication";
 import { useRouter } from "next/navigation";
 
@@ -168,6 +168,46 @@ export default function Tavern() {
           </button>
         </div>
       ) : null}
+
+      {!prompt ? (
+        <>
+          {Array(5)
+            .fill(undefined)
+            .map((_, i) => (
+              <div key={i} className="mb-6">
+                <Skeleton height={20} />
+                <Skeleton height={60} />
+              </div>
+            ))}
+        </>
+      ) : prompt.isAnswered ? (
+        <>
+          <AnswerList
+            userLikes={likes}
+            answers={answers ? answers : []}
+            onAnswerLiked={(answerId: number) =>
+              mutation.mutate({
+                user_id: user?.uid,
+                prompt_id: prompt?.id,
+                answer_id: answerId,
+              })
+            }
+          />
+          {hasNextPage ? (
+            <p ref={ref} className="text-center text-xl text-gray-500">
+              Loading more answers...
+            </p>
+          ) : null}
+        </>
+      ) : (
+        <PromptForm
+          isLoading={saveAnswerMutation.isLoading}
+          answersCount={prompt?.totalAnswers}
+          onAnswerSubmitted={(text: string) => {
+            saveAnswerMutation.mutate({ text, prompt_id: prompt?.id });
+          }}
+        />
+      )}
     </div>
   );
 }

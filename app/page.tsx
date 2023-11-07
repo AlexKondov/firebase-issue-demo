@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 // import Navigation from "../components/Navigation";
+import Arrow from "../illustrations/Arrow";
+import Cook from "../illustrations/Cook";
 
 export default function Page() {
   return (
@@ -32,6 +34,7 @@ export default function Page() {
                 ?
               </h2>
               <div className="flex justify-center md:mt-12 w-full mx-auto">
+                <Cook />
               </div>
             </section>
           </div>
@@ -108,6 +111,7 @@ export default function Page() {
             </div>
             <div className="text-center my-32">
               <div className="inline-block">
+                <Arrow />
               </div>
             </div>
             {/* <div className="h-60 w-0.5 bg-slate-700 rounded w-0.5 mx-auto my-10" /> */}
@@ -125,6 +129,7 @@ export default function Page() {
             </div>
             <div className="text-center my-32">
               <div className="inline-block">
+                <Arrow />
               </div>
             </div>
             {/* <div className="h-60 w-0.5 bg-slate-700 rounded w-0.5 mx-auto my-10" /> */}
@@ -142,6 +147,7 @@ export default function Page() {
             </div>
             <div className="text-center my-32">
               <div className="inline-block">
+                <Arrow />
               </div>
             </div>
             {/* <div className="h-60 w-0.5 bg-slate-700 rounded w-0.5 mx-auto my-10" /> */}
